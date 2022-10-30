@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Тайное_сообщение_и_пароль
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string userPassword;
+            const string Password = "messeng";
+            int numberAttempts = 3;
+            const int AnExtraStep = 1;
+           
+            Console.WriteLine("Для разблокировки сообщения введите пароль");
+
+            for (int i = numberAttempts ; i > 0 ; i--)
+            {
+                Console.Write("пароль: ");
+                userPassword = Console.ReadLine();
+                
+                if (userPassword == Password)
+                {
+                    Console.WriteLine("Вам доступны коды пуска ядерных ракет ))");
+                    Console.ReadKey();
+                    break;
+                }
+                else 
+                {
+                    numberAttempts = (i - AnExtraStep);
+                    Console.WriteLine("У вас осталось " + numberAttempts + " попытка");
+                    Console.ReadKey();
+                }
+            }
+        }
+    }
+}
